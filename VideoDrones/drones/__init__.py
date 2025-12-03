@@ -8,6 +8,7 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 
 from videodrone.utils import get_random_y4m
 
@@ -31,8 +32,9 @@ def get_chrome_browser(y4m=None, headless=True):
     options.add_argument('--use-fake-ui-for-media-stream')
     options.add_argument(f'--use-file-for-fake-video-capture={y4m_file}')
     options.add_argument('--disable-gpu')
+    service = Service(DRIVER_PATH)
     browser = webdriver.Chrome(
-            executable_path = DRIVER_PATH,
+            service = service,
             # desired_capabilities = webdriver.DesiredCapabilities.CHROME,
             options = options,
         )

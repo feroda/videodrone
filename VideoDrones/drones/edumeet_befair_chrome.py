@@ -16,12 +16,12 @@ def run(room, y4m, lifetime=360, headless=1, **kwargs):
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{url}/{room}')
     
-    browser.find_element_by_xpath('/html/body/div[2]/div[3]/div/div[3]/button[2]').click()
-    # browser.find_element(By.XPATH('/html/body/div[2]/div[3]/div/div[3]/button[2]')).click()
+    # OLD browser.find_element_by_xpath('/html/body/div[2]/div[3]/div/div[3]/button[2]').click()
+    browser.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div[2]/div/button').click()
     time.sleep(lifetime)
     # leave the room
-    browser.find_element_by_xpath('/html/body/div[1]/div/header/div/button/span[1]').click()
-    # browser.find_element(By.XPATH('/html/body/div[1]/div/header/div/button/span[1]')).click()
+    # OLD browser.find_element_by_xpath('/html/body/div[1]/div/header/div/button/span[1]').click()
+    browser.find_element(By.XPATH, '/html/body/div/div/header/div/button').click()
     try:
         browser.close()
     except NoSuchWindowException as e:

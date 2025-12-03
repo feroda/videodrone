@@ -91,7 +91,7 @@ docker image build --tag videodrone .
 # docker container run -it videodrone /bin/sh
 
 # run the container with your preferred configuration
-docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone videodrone -room thatroom -c videodrone.drones.jitsi_chrome -y4m /VideoDrone/y4ms/ -lifetime 33 -n 4
+docker container run -it -e VIDEODRONE_DRIVER=/usr/bin/chromedriver -v $(pwd)/VideoDrones/:/VideoDrones -v $(pwd)/VideoDrones/drones/:/usr/lib/python3.8/site-packages/videodrone/drones/ videodrone videodrone -room tr -c videodrone.drones.edumeet_befair_chrome -y4m /VideoDrones/y4ms/ -lifetime 33 -n 4
 ````
 
 Run
