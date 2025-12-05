@@ -1,0 +1,1 @@
+docker container run -it -e VIDEODRONE_DRIVER=/usr/bin/chromedriver -v $(pwd)/VideoDrones/:/VideoDrones -v $(pwd)/VideoDrones/drones/:/usr/local/lib/python3.11/dist-packages/videodrone/drones/ videodrone-new /bin/bash
